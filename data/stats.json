@@ -1,0 +1,115 @@
+{
+  "generated_at": "2026-05-15T02:44:12.986Z",
+  "total_apps": 654,
+  "open_source_count": 252,
+  "recommended_count": 51,
+  "unique_platforms": 10,
+  "by_source_file": {
+    "MOBILE.md": 138,
+    "README.md": 510,
+    "filter/windows-only.md": 2,
+    "filter/macOS-only.md": 1,
+    "filter/linux-only.md": 2,
+    "filter/recommended-only.md": 1
+  },
+  "by_section_l1": {
+    "Security": 20,
+    "Compression and Archiving": 12,
+    "Image Viewers": 10,
+    "Download Managers": 12,
+    "Audio": 50,
+    "Video": 59,
+    "Documents": 40,
+    "Graphics Tools": 26,
+    "Utility": 101,
+    "Text Editors": 32,
+    "VPN and Proxy Tools": 23,
+    "Games": 22,
+    "Developer Tools": 78,
+    "Mobile Emulators": 8,
+    "Remote Access": 15,
+    "Browsers": 23,
+    "Customize": 32,
+    "Note Taking": 19,
+    "Finance": 1,
+    "3D Modeling and Animation": 9,
+    "Data Management": 13,
+    "Communication": 29,
+    "Other Emulators": 18,
+    "Health and Wellness": 2
+  },
+  "by_platform": {
+    "android": 132,
+    "ios": 100,
+    "mobile": 158,
+    "general": 370,
+    "windows": 432,
+    "linux": 285,
+    "macos": 357,
+    "desktop": 23,
+    "web": 42,
+    "cli": 67
+  },
+  "top_sections": [
+    {
+      "section": "Utility",
+      "count": 101
+    },
+    {
+      "section": "Developer Tools",
+      "count": 78
+    },
+    {
+      "section": "Video",
+      "count": 59
+    },
+    {
+      "section": "Audio",
+      "count": 50
+    },
+    {
+      "section": "Documents",
+      "count": 40
+    },
+    {
+      "section": "Text Editors",
+      "count": 32
+    },
+    {
+      "section": "Customize",
+      "count": 32
+    },
+    {
+      "section": "Communication",
+      "count": 29
+    },
+    {
+      "section": "Graphics Tools",
+      "count": 26
+    },
+    {
+      "section": "VPN and Proxy Tools",
+      "count": 23
+    },
+    {
+      "section": "Browsers",
+      "count": 23
+    },
+    {
+      "section": "Games",
+      "count": 22
+    },
+    {
+      "section": "Security",
+      "count": 20
+    },
+    {
+      "section": "Note Taking",
+      "count": 19
+    },
+    {
+      "section": "Other Emulators",
+      "count": 18
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Apps Intelligence Hub</title>
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <p class="eyebrow">Axorax / awesome-free-apps</p>
+        <h1>Free Apps Intelligence Hub</h1>
+        <p class="subtitle">
+          Интерактивный каталог бесплатных приложений: поиск, фильтры, сортировка и быстрые срезы.
+        </p>
+      </div>
+      <a class="btn btn--ghost" href="./stats.html">Открыть статистику</a>
+    </header>
+
+    <main class="layout">
+      <aside class="filters" aria-label="Панель фильтров">
+        <label class="field">
+          <span>Поиск</span>
+          <input id="searchInput" type="search" placeholder="Название, описание, категория..." />
+        </label>
+
+        <label class="field">
+          <span>Категория</span>
+          <select id="categorySelect">
+            <option value="">Все</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Платформа</span>
+          <select id="platformSelect">
+            <option value="">Все</option>
+          </select>
+        </label>
+
+        <label class="field field--inline">
+          <input id="openSourceOnly" type="checkbox" />
+          <span>Только open-source</span>
+        </label>
+
+        <label class="field field--inline">
+          <input id="recommendedOnly" type="checkbox" />
+          <span>Только recommended</span>
+        </label>
+
+        <label class="field">
+          <span>Сортировка</span>
+          <select id="sortSelect">
+            <option value="name_asc">Имя: A-Z</option>
+            <option value="name_desc">Имя: Z-A</option>
+            <option value="category_asc">Категория: A-Z</option>
+          </select>
+        </label>
+
+        <button id="resetFiltersBtn" class="btn btn--secondary" type="button">Сбросить фильтры</button>
+      </aside>
+
+      <section class="content" aria-live="polite">
+        <div class="quick-stats" id="quickStats"></div>
+        <div class="result-bar">
+          <p id="resultCount">Загрузка...</p>
+        </div>
+        <div id="cardsGrid" class="cards-grid"></div>
+      </section>
+    </main>
+
+    <template id="appCardTemplate">
+      <article class="card">
+        <div class="card__header">
+          <h2 class="card__title"><a class="card__link" target="_blank" rel="noreferrer noopener"></a></h2>
+          <div class="pill-row"></div>
+        </div>
+        <p class="card__description"></p>
+        <dl class="meta">
+          <div><dt>Категория</dt><dd class="meta__category"></dd></div>
+          <div><dt>Источник</dt><dd class="meta__source"></dd></div>
+        </dl>
+      </article>
+    </template>
+
+    <script src="./assets/app.js" defer></script>
+  </body>
+  </html>
+

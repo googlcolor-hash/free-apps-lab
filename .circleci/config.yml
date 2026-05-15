@@ -1,0 +1,44 @@
+version: 2.1
+
+jobs:
+  validate-data:
+    docker:
+      - image: cimg/node:20.11
+    steps:
+      - checkout
+      - run: npm ci
+      - run: npm run build:data
+      - run: npm run validate-data
+      - store_artifacts:
+          path: data
+
+  build-web:
+    docker:
+      - image: cimg/node:20.11
+    steps:
+      - checkout
+      - run: npm ci
+      - run: npm run build
+      - store_artifacts:
+          path: dist
+
+  smoke:
+    docker:
+      - image: cimg/node:20.11
+    steps:
+      - checkout
+      - run: npm ci
+      - run: npm run build
+      - run: npm run smoke
+
+workflows:
+  free-apps-lab:
+    jobs:
+      - validate-data
+      - build-web:
+          requires:
+            - validate-data
+      - smoke:
+          requires:
+            - build-web
+

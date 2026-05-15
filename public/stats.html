@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Apps Intelligence Hub — Статистика</title>
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <p class="eyebrow">Axorax / awesome-free-apps</p>
+        <h1>Статистика каталога</h1>
+        <p class="subtitle">Сводка по платформам, источникам, категориям и флагам качества.</p>
+      </div>
+      <a class="btn btn--ghost" href="./index.html">К каталогу</a>
+    </header>
+
+    <main class="stats-layout">
+      <section class="kpi-grid" id="kpiGrid"></section>
+      <section class="panel">
+        <h2>По платформам</h2>
+        <div id="platformStats" class="bars"></div>
+      </section>
+      <section class="panel">
+        <h2>По источникам</h2>
+        <div id="sourceStats" class="bars"></div>
+      </section>
+      <section class="panel">
+        <h2>Топ категорий</h2>
+        <div id="categoryStats" class="bars"></div>
+      </section>
+    </main>
+
+    <script src="./assets/stats.js" defer></script>
+  </body>
+  </html>
+

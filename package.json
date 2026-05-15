@@ -1,0 +1,24 @@
+{
+  "name": "free-apps-lab",
+  "version": "1.0.0",
+  "description": "Free Apps Intelligence Hub for Axorax/awesome-free-apps",
+  "main": "src/build-data.js",
+  "scripts": {
+    "build:data": "node src/build-data.js",
+    "validate-data": "node src/validate-data.js",
+    "build-web": "node src/build-web.js",
+    "smoke": "node src/smoke.js",
+    "build": "npm run build:data && npm run validate-data && npm run build-web",
+    "test": "npm run validate-data",
+    "ui-check": "node src/ui-behavior-check.js",
+    "layout-check": "node src/layout-check.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "jsdom": "^29.1.1",
+    "playwright-core": "^1.60.0"
+  }
+}

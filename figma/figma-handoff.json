@@ -1,0 +1,17 @@
+{
+  "file_name": "Free Apps Intelligence Hub",
+  "file_key": "jJu4qasZ3YqYXF42aJefX7",
+  "url": "https://www.figma.com/design/jJu4qasZ3YqYXF42aJefX7",
+  "page_id": "1:2",
+  "frames": {
+    "catalog_desktop": "3:2",
+    "catalog_mobile": "3:78",
+    "analytics_dashboard": "3:133"
+  },
+  "components": {
+    "filter_chip": "2:9",
+    "search_bar": "2:10",
+    "stat_card": "2:13",
+    "app_card": "2:17"
+  }
+}
