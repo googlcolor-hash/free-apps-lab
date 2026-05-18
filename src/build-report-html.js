@@ -122,6 +122,7 @@ async function main() {
       <div class="card col-3"><div class="kpi">${stats.open_source_count}</div><div class="kpi-label">Open-source</div></div>
       <div class="card col-3"><div class="kpi">${stats.recommended_count}</div><div class="kpi-label">Recommended</div></div>
       <div class="card col-3"><div class="kpi">${stats.unique_platforms}</div><div class="kpi-label">Платформ</div></div>
+      <div class="card col-3"><div class="kpi">${stats.multi_source_apps || 0}</div><div class="kpi-label">Apps в нескольких источниках</div></div>
 
       <div class="card col-6">
         <h2>Структура Пакета</h2>
@@ -215,6 +216,15 @@ async function main() {
         <p><b>Figma:</b> не обязательна в текущем цикле</p>
         <p><b>Excel:</b> не обязательна в текущем цикле</p>
       </div>
+
+      <div class="card col-6">
+        <h2>QA Скриншот: Desktop</h2>
+        <img src="../qa/report_full_desktop.png" alt="QA desktop report" style="width:100%;border:1px solid var(--line);border-radius:12px" />
+      </div>
+      <div class="card col-6">
+        <h2>QA Скриншот: Mobile</h2>
+        <img src="../qa/report_full_mobile.png" alt="QA mobile report" style="width:100%;border:1px solid var(--line);border-radius:12px" />
+      </div>
     </section>
   </div>
 </body>
@@ -232,4 +242,3 @@ main().catch((err) => {
   console.error(err);
   process.exit(1);
 });
-

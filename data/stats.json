@@ -1,10 +1,23 @@
 {
-  "generated_at": "2026-05-18T11:53:27.333Z",
+  "generated_at": "2026-05-18T15:20:32.028Z",
   "total_apps": 654,
   "open_source_count": 252,
   "recommended_count": 51,
+  "multi_source_apps": 640,
   "unique_platforms": 10,
   "by_source_file": {
+    "MOBILE.md": 148,
+    "filter/android-only.md": 124,
+    "filter/iOS-only.md": 100,
+    "README.md": 510,
+    "filter/open-source-only.md": 233,
+    "filter/recommended-only.md": 51,
+    "filter/windows-only.md": 426,
+    "filter/linux-only.md": 280,
+    "filter/macOS-only.md": 354,
+    "filter/open-source-mobile-only.md": 20
+  },
+  "by_primary_source_file": {
     "MOBILE.md": 138,
     "README.md": 510,
     "filter/windows-only.md": 2,

@@ -231,7 +231,11 @@ function mergeEntries(entries) {
   for (const entry of entries) {
     const key = normalizeUrl(entry.url);
     if (!mergedByKey.has(key)) {
-      mergedByKey.set(key, { ...entry });
+      mergedByKey.set(key, {
+        ...entry,
+        source_files: [entry.source_file],
+        source_lines: [{ file: entry.source_file, line: entry.source_line }],
+      });
       continue;
     }
 
@@ -248,6 +252,17 @@ function mergeEntries(entries) {
     current.platforms = Array.from(new Set([...current.platforms, ...entry.platforms])).sort();
     current.is_open_source = current.is_open_source || entry.is_open_source;
     current.is_recommended = current.is_recommended || entry.is_recommended;
+    current.source_files = Array.from(new Set([...(current.source_files || []), entry.source_file])).sort();
+    current.source_lines = [...(current.source_lines || []), { file: entry.source_file, line: entry.source_line }];
+
+    // Keep a stable "primary" source pointer for backward compatibility.
+    if (
+      current.source_file.startsWith("filter/") &&
+      (entry.source_file === "README.md" || entry.source_file === "MOBILE.md")
+    ) {
+      current.source_file = entry.source_file;
+      current.source_line = entry.source_line;
+    }
   }
 
   const merged = Array.from(mergedByKey.values()).sort((a, b) => a.name.localeCompare(b.name));
@@ -263,11 +278,20 @@ function mergeEntries(entries) {
 
 function buildStats(entries) {
   const bySource = {};
+  const byPrimarySource = {};
   const bySection = {};
   const byPlatform = {};
+  let multiSourceApps = 0;
 
   for (const app of entries) {
-    bySource[app.source_file] = (bySource[app.source_file] || 0) + 1;
+    const sourceFiles = Array.isArray(app.source_files) && app.source_files.length ? app.source_files : [app.source_file];
+    for (const source of sourceFiles) {
+      bySource[source] = (bySource[source] || 0) + 1;
+    }
+    byPrimarySource[app.source_file] = (byPrimarySource[app.source_file] || 0) + 1;
+    if (sourceFiles.length > 1) {
+      multiSourceApps += 1;
+    }
     bySection[app.section_l1] = (bySection[app.section_l1] || 0) + 1;
     for (const platform of app.platforms) {
       byPlatform[platform] = (byPlatform[platform] || 0) + 1;
@@ -284,8 +308,10 @@ function buildStats(entries) {
     total_apps: entries.length,
     open_source_count: entries.filter((app) => app.is_open_source).length,
     recommended_count: entries.filter((app) => app.is_recommended).length,
+    multi_source_apps: multiSourceApps,
     unique_platforms: Object.keys(byPlatform).length,
     by_source_file: bySource,
+    by_primary_source_file: byPrimarySource,
     by_section_l1: bySection,
     by_platform: byPlatform,
     top_sections: topSections,
@@ -305,6 +331,8 @@ async function writeCsv(entries) {
     "is_recommended",
     "source_file",
     "source_line",
+    "source_files_count",
+    "source_files",
   ];
 
   const rows = [toCsvRow(header)];
@@ -322,6 +350,8 @@ async function writeCsv(entries) {
         app.is_recommended,
         app.source_file,
         app.source_line,
+        Array.isArray(app.source_files) ? app.source_files.length : 1,
+        Array.isArray(app.source_files) ? app.source_files.join("|") : app.source_file,
       ])
     );
   }
@@ -357,4 +387,3 @@ main().catch((error) => {
   console.error(error);
   process.exit(1);
 });
-

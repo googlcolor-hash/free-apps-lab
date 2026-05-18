@@ -36,6 +36,17 @@ async function main() {
     assert(typeof app.is_recommended === "boolean", `${prefix}.is_recommended must be boolean`, errors);
     assert(app.source_file && typeof app.source_file === "string", `${prefix}.source_file missing`, errors);
     assert(Number.isInteger(app.source_line) && app.source_line > 0, `${prefix}.source_line invalid`, errors);
+    if (app.source_files !== undefined) {
+      assert(Array.isArray(app.source_files), `${prefix}.source_files must be array`, errors);
+      if (Array.isArray(app.source_files)) {
+        assert(app.source_files.length > 0, `${prefix}.source_files empty`, errors);
+        assert(
+          app.source_files.every((s) => typeof s === "string" && s.length > 0),
+          `${prefix}.source_files contains invalid values`,
+          errors
+        );
+      }
+    }
 
     const key = normalizeUrl(app.url);
     if (seen.has(key)) {
@@ -65,6 +76,10 @@ async function main() {
   assert(stats.total_apps === apps.length, "stats.total_apps must match apps length", errors);
   assert(stats.open_source_count <= apps.length, "stats.open_source_count invalid", errors);
   assert(stats.recommended_count <= apps.length, "stats.recommended_count invalid", errors);
+  if (stats.multi_source_apps !== undefined) {
+    assert(typeof stats.multi_source_apps === "number", "stats.multi_source_apps must be number", errors);
+    assert(stats.multi_source_apps <= apps.length, "stats.multi_source_apps invalid", errors);
+  }
 
   if (errors.length) {
     console.error("Validation failed:");
@@ -80,4 +95,3 @@ main().catch((error) => {
   console.error(error);
   process.exit(1);
 });
-
