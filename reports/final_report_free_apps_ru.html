@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Free Apps Intelligence Hub - Final Report</title>
+  <style>
+    :root{--bg:#2a2e33;--panel:#363b42;--line:#4b525d;--text:#e7ecf2;--muted:#b6bfcb;--ok:#80ca91;--acc:#8fb6e2}
+    *{box-sizing:border-box} body{margin:0;font-family:Segoe UI,Inter,Arial,sans-serif;background:linear-gradient(180deg,#262a2f,#31363d);color:var(--text)}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:14px}
+    h1{margin:0 0 8px;font-size:28px} h2{margin:0 0 10px;font-size:20px}
+    .muted{color:var(--muted)} .ok{color:var(--ok)} a{color:var(--acc)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+    .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:4px 10px;margin:4px 6px 0 0;color:var(--muted)}
+    ul{margin:8px 0 0 18px} li{margin:4px 0}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>Free Apps Intelligence Hub</h1>
+      <div class="muted">Обновлено: 2026-05-18 14:49:30</div>
+      <div class="muted">Источник: Axorax/awesome-free-apps (README + MOBILE + filter/*)</div>
+    </div>
+
+    <div class="card">
+      <h2>1) Интерактивная HTML-база</h2>
+      <div class="grid">
+        <div><b>654</b><div class="muted">Уникальных приложений</div></div>
+        <div><b>252</b><div class="muted">Open-source</div></div>
+        <div><b>51</b><div class="muted">Recommended</div></div>
+        <div><b>10</b><div class="muted">Платформ</div></div>
+      </div>
+      <p><a href="../dist/index.html">Открыть каталог</a> | <a href="../dist/stats.html">Открыть аналитику</a></p>
+    </div>
+
+    <div class="card">
+      <h2>2) GitHub репозиторий</h2>
+      <p><a href="https://github.com/googlcolor-hash/free-apps-lab">github.com/googlcolor-hash/free-apps-lab</a></p>
+      <p class="muted">Изменения синхронизированы в main после пересборки.</p>
+    </div>
+
+    <div class="card">
+      <h2>3) Figma</h2>
+      <p><a href="https://www.figma.com/design/jJu4qasZ3YqYXF42aJefX7">https://www.figma.com/design/jJu4qasZ3YqYXF42aJefX7</a></p>
+      <p class="muted">В проекте сохранён актуальный URL дизайн-файла.</p>
+    </div>
+
+    <div class="card">
+      <h2>4) Spreadsheet</h2>
+      <p><a href="../deliverables/free_apps_catalog.xlsx">free_apps_catalog.xlsx</a></p>
+      <p class="muted">Пересобран на свежих данных.</p>
+    </div>
+
+    <div class="card">
+      <h2>5) Presentation</h2>
+      <p><a href="../deliverables/free_apps_overview.pptx">free_apps_overview.pptx</a></p>
+      <p class="muted">Пересобрана на свежих метриках.</p>
+    </div>
+
+    <div class="card">
+      <h2>6) CircleCI</h2>
+      <p><a href="../.circleci/config.yml">.circleci/config.yml</a></p>
+      <div class="pill">validate-data</div><div class="pill">build-web</div><div class="pill">smoke</div>
+      <p class="muted">Конфигурация готова к запуску после подключения репозитория в UI CircleCI.</p>
+    </div>
+
+    <div class="card">
+      <h2>Проверки</h2>
+      <ul>
+        <li class="ok">build:data + validate-data + build-web: passed</li>
+        <li class="ok">smoke: passed</li>
+        <li class="ok">ui-check: passed</li>
+        <li class="ok">layout-check: passed (desktop/mobile, overflow=0)</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

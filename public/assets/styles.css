@@ -1,14 +1,14 @@
 :root {
-  --bg: #f4f6f8;
-  --surface: #ffffff;
-  --text: #1d252f;
-  --muted: #5a6978;
-  --line: #d5dce4;
-  --primary: #1f6f78;
-  --secondary: #285f8f;
-  --accent: #f4a259;
-  --ok: #2e7d32;
-  --shadow: 0 12px 32px rgba(20, 33, 56, 0.08);
+  --bg: #2b2f34;
+  --surface: #363b42;
+  --text: #e6eaf0;
+  --muted: #b8c0cc;
+  --line: #4a515c;
+  --primary: #5f8ec6;
+  --secondary: #7aa2d0;
+  --accent: #c6925f;
+  --ok: #7fc88f;
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
 }
 
 *,
@@ -24,7 +24,7 @@ body {
   width: 100%;
   overflow-x: hidden;
   font-family: "Segoe UI", "Inter", "Helvetica Neue", sans-serif;
-  background: linear-gradient(180deg, #eef3f7 0%, #f8fafc 100%);
+  background: linear-gradient(180deg, #272b30 0%, #2f343a 100%);
   color: var(--text);
 }
 
@@ -40,7 +40,7 @@ a {
   align-items: flex-start;
   padding: 1.25rem clamp(1rem, 2.5vw, 2.5rem);
   border-bottom: 1px solid var(--line);
-  background: radial-gradient(circle at 0% 0%, rgba(31, 111, 120, 0.12), transparent 45%), var(--surface);
+  background: radial-gradient(circle at 0% 0%, rgba(95, 142, 198, 0.22), transparent 45%), var(--surface);
 }
 
 .hero__content {
@@ -52,7 +52,7 @@ a {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 700;
-  color: var(--secondary);
+  color: #a8c3e2;
   font-size: 0.72rem;
 }
 
@@ -109,6 +109,8 @@ h1 {
   border-radius: 8px;
   padding: 0.55rem 0.65rem;
   font-size: 0.92rem;
+  background: #31363d;
+  color: var(--text);
 }
 
 .field--inline {
@@ -143,7 +145,7 @@ h1 {
 .btn--ghost {
   border-color: var(--secondary);
   background: transparent;
-  color: var(--secondary);
+  color: #b8d0eb;
 }
 
 .content {
@@ -189,7 +191,7 @@ h1 {
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 0.8rem;
-  background: #fffdf9;
+  background: #3a4048;
   min-width: 0;
 }
 
@@ -233,11 +235,11 @@ h1 {
 
 .pill--recommended {
   border-color: #f6bc7f;
-  color: #9f4a02;
+  color: #ffd8ad;
 }
 
 .card__description {
-  color: #304352;
+  color: #d4dbe6;
   font-size: 0.88rem;
   margin: 0.6rem 0 0.7rem;
 }
@@ -322,7 +324,7 @@ h1 {
 .bar__track {
   height: 9px;
   border-radius: 999px;
-  background: #ecf1f5;
+  background: #2b3037;
   overflow: hidden;
 }
 
@@ -356,4 +358,3 @@ h1 {
     grid-template-columns: 1fr;
   }
 }
-
