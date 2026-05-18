@@ -7,8 +7,9 @@
     "build:data": "node src/build-data.js",
     "validate-data": "node src/validate-data.js",
     "build-web": "node src/build-web.js",
+    "build:report": "node src/build-report-html.js",
     "smoke": "node src/smoke.js",
-    "build": "npm run build:data && npm run validate-data && npm run build-web",
+    "build": "npm run build:data && npm run validate-data && npm run build-web && npm run build:report",
     "test": "npm run validate-data",
     "ui-check": "node src/ui-behavior-check.js",
     "layout-check": "node src/layout-check.js"

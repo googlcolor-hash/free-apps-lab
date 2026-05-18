@@ -1,80 +1,356 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Free Apps Intelligence Hub - Final Report</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Free Apps Intelligence Hub - HTML Presentation</title>
   <style>
-    :root{--bg:#2a2e33;--panel:#363b42;--line:#4b525d;--text:#e7ecf2;--muted:#b6bfcb;--ok:#80ca91;--acc:#8fb6e2}
-    *{box-sizing:border-box} body{margin:0;font-family:Segoe UI,Inter,Arial,sans-serif;background:linear-gradient(180deg,#262a2f,#31363d);color:var(--text)}
-    .wrap{max-width:1100px;margin:0 auto;padding:24px}
-    .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:14px}
-    h1{margin:0 0 8px;font-size:28px} h2{margin:0 0 10px;font-size:20px}
-    .muted{color:var(--muted)} .ok{color:var(--ok)} a{color:var(--acc)}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
-    .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:4px 10px;margin:4px 6px 0 0;color:var(--muted)}
-    ul{margin:8px 0 0 18px} li{margin:4px 0}
+    :root{
+      --bg:#252a2f;--bg2:#30353c;--panel:#3a4048;--line:#4a515d;
+      --text:#e8edf4;--muted:#b5bfcb;--acc:#84addc;--ok:#7fc98f;--warn:#d7aa71;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--text);font-family:Segoe UI,Inter,Arial,sans-serif}
+    .wrap{max-width:1240px;margin:0 auto;padding:18px}
+    .hero,.card{background:var(--panel);border:1px solid var(--line);border-radius:16px}
+    .hero{padding:20px 22px;margin-bottom:14px}
+    .hero h1{margin:0 0 8px;font-size:30px;line-height:1.2}
+    .muted{color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:12px}
+    .card{padding:14px}
+    .col-3{grid-column:span 3}.col-4{grid-column:span 4}.col-6{grid-column:span 6}.col-8{grid-column:span 8}.col-12{grid-column:span 12}
+    .kpi{font-size:28px;font-weight:700}
+    .kpi-label{color:var(--muted);font-size:13px}
+    h2{margin:0 0 10px;font-size:20px}
+    h3{margin:0 0 8px;font-size:16px}
+    table{width:100%;border-collapse:collapse}
+    th,td{border-bottom:1px solid var(--line);padding:7px 6px;text-align:left;font-size:13px;vertical-align:top}
+    th{color:#c9d6e6}
+    .num{text-align:right;font-variant-numeric:tabular-nums}
+    .bars{display:grid;gap:8px}
+    .bar-row{display:grid;grid-template-columns:190px 1fr 56px;gap:10px;align-items:center}
+    .bar-label{font-size:12px;color:#d8e0ea}
+    .bar-wrap{height:12px;border-radius:999px;background:#2f343b;border:1px solid #4b535f;overflow:hidden}
+    .bar{height:100%;background:linear-gradient(90deg,#6f96c7,#8cb2dd)}
+    .bar-num{font-size:12px;color:#cfd9e7;text-align:right;font-variant-numeric:tabular-nums}
+    .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:4px 10px;margin:0 6px 6px 0;color:var(--muted);font-size:12px}
+    .ok{color:var(--ok)} .warn{color:var(--warn)}
+    .links a{color:var(--acc);text-decoration:none}
+    .links a:hover{text-decoration:underline}
+    .schema{width:100%;height:auto;border:1px solid var(--line);border-radius:12px;background:#2f343b}
+    .sample-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+    .sample{border:1px solid var(--line);border-radius:12px;padding:10px;background:#343a42}
+    .sample b{display:block;font-size:14px;margin-bottom:4px}
+    .sample .meta{font-size:12px;color:var(--muted)}
+    .sample a{font-size:12px;color:var(--acc);word-break:break-all}
+    @media (max-width:1100px){.col-3,.col-4{grid-column:span 6}.bar-row{grid-template-columns:150px 1fr 50px}}
+    @media (max-width:760px){.col-3,.col-4,.col-6,.col-8{grid-column:span 12}.bar-row{grid-template-columns:120px 1fr 40px}}
   </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="card">
+    <section class="hero">
       <h1>Free Apps Intelligence Hub</h1>
-      <div class="muted">Обновлено: 2026-05-18 14:49:30</div>
-      <div class="muted">Источник: Axorax/awesome-free-apps (README + MOBILE + filter/*)</div>
-    </div>
-
-    <div class="card">
-      <h2>1) Интерактивная HTML-база</h2>
-      <div class="grid">
-        <div><b>654</b><div class="muted">Уникальных приложений</div></div>
-        <div><b>252</b><div class="muted">Open-source</div></div>
-        <div><b>51</b><div class="muted">Recommended</div></div>
-        <div><b>10</b><div class="muted">Платформ</div></div>
+      <div class="muted">Полный HTML-пакет отчётности и структуры базы (без PPTX/Excel зависимости)</div>
+      <div class="muted">Обновлено: 18.05.2026, 14:53:31 | Источник: Axorax/awesome-free-apps</div>
+      <div style="margin-top:10px" class="links">
+        <a href="../dist/index.html">Каталог</a> ·
+        <a href="../dist/stats.html">Аналитика</a> ·
+        <a href="https://github.com/googlcolor-hash/free-apps-lab">GitHub</a> ·
+        <a href="../.circleci/config.yml">CircleCI config</a>
       </div>
-      <p><a href="../dist/index.html">Открыть каталог</a> | <a href="../dist/stats.html">Открыть аналитику</a></p>
-    </div>
+    </section>
 
-    <div class="card">
-      <h2>2) GitHub репозиторий</h2>
-      <p><a href="https://github.com/googlcolor-hash/free-apps-lab">github.com/googlcolor-hash/free-apps-lab</a></p>
-      <p class="muted">Изменения синхронизированы в main после пересборки.</p>
-    </div>
+    <section class="grid">
+      <div class="card col-3"><div class="kpi">654</div><div class="kpi-label">Уникальных приложений</div></div>
+      <div class="card col-3"><div class="kpi">252</div><div class="kpi-label">Open-source</div></div>
+      <div class="card col-3"><div class="kpi">51</div><div class="kpi-label">Recommended</div></div>
+      <div class="card col-3"><div class="kpi">10</div><div class="kpi-label">Платформ</div></div>
 
-    <div class="card">
-      <h2>3) Figma</h2>
-      <p><a href="https://www.figma.com/design/jJu4qasZ3YqYXF42aJefX7">https://www.figma.com/design/jJu4qasZ3YqYXF42aJefX7</a></p>
-      <p class="muted">В проекте сохранён актуальный URL дизайн-файла.</p>
-    </div>
+      <div class="card col-6">
+        <h2>Структура Пакета</h2>
+        <svg class="schema" viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="pipeline">
+          <rect x="20" y="45" width="150" height="60" rx="10" fill="#3e4550" stroke="#5a6574"/>
+          <text x="95" y="80" text-anchor="middle" fill="#dfe7f2" font-size="14">Sources</text>
+          <text x="95" y="98" text-anchor="middle" fill="#afbbca" font-size="11">README/MOBILE/filter</text>
 
-    <div class="card">
-      <h2>4) Spreadsheet</h2>
-      <p><a href="../deliverables/free_apps_catalog.xlsx">free_apps_catalog.xlsx</a></p>
-      <p class="muted">Пересобран на свежих данных.</p>
-    </div>
+          <rect x="210" y="45" width="170" height="60" rx="10" fill="#3e4550" stroke="#5a6574"/>
+          <text x="295" y="80" text-anchor="middle" fill="#dfe7f2" font-size="14">Parser + Normalize</text>
+          <text x="295" y="98" text-anchor="middle" fill="#afbbca" font-size="11">apps.json / csv / stats</text>
 
-    <div class="card">
-      <h2>5) Presentation</h2>
-      <p><a href="../deliverables/free_apps_overview.pptx">free_apps_overview.pptx</a></p>
-      <p class="muted">Пересобрана на свежих метриках.</p>
-    </div>
+          <rect x="420" y="45" width="150" height="60" rx="10" fill="#3e4550" stroke="#5a6574"/>
+          <text x="495" y="80" text-anchor="middle" fill="#dfe7f2" font-size="14">Web Build</text>
+          <text x="495" y="98" text-anchor="middle" fill="#afbbca" font-size="11">dist/index + stats</text>
 
-    <div class="card">
-      <h2>6) CircleCI</h2>
-      <p><a href="../.circleci/config.yml">.circleci/config.yml</a></p>
-      <div class="pill">validate-data</div><div class="pill">build-web</div><div class="pill">smoke</div>
-      <p class="muted">Конфигурация готова к запуску после подключения репозитория в UI CircleCI.</p>
-    </div>
+          <rect x="610" y="45" width="120" height="60" rx="10" fill="#3e4550" stroke="#5a6574"/>
+          <text x="670" y="80" text-anchor="middle" fill="#dfe7f2" font-size="14">QA</text>
+          <text x="670" y="98" text-anchor="middle" fill="#afbbca" font-size="11">smoke / ui / layout</text>
 
-    <div class="card">
-      <h2>Проверки</h2>
-      <ul>
-        <li class="ok">build:data + validate-data + build-web: passed</li>
-        <li class="ok">smoke: passed</li>
-        <li class="ok">ui-check: passed</li>
-        <li class="ok">layout-check: passed (desktop/mobile, overflow=0)</li>
-      </ul>
+          <rect x="760" y="45" width="120" height="60" rx="10" fill="#3e4550" stroke="#5a6574"/>
+          <text x="820" y="80" text-anchor="middle" fill="#dfe7f2" font-size="14">GitHub</text>
+          <text x="820" y="98" text-anchor="middle" fill="#afbbca" font-size="11">main sync</text>
+
+          <line x1="170" y1="75" x2="210" y2="75" stroke="#7da5d5" stroke-width="2"/>
+          <line x1="380" y1="75" x2="420" y2="75" stroke="#7da5d5" stroke-width="2"/>
+          <line x1="570" y1="75" x2="610" y2="75" stroke="#7da5d5" stroke-width="2"/>
+          <line x1="730" y1="75" x2="760" y2="75" stroke="#7da5d5" stroke-width="2"/>
+
+          <rect x="40" y="160" width="820" height="110" rx="12" fill="#343a43" stroke="#5a6574"/>
+          <text x="60" y="188" fill="#dce5f1" font-size="14">DoD-ориентир (в этой версии)</text>
+          <text x="60" y="212" fill="#aeb9c7" font-size="12">• HTML-база и аналитика пересобраны и проверены • GitHub обновлён • CircleCI config актуален</text>
+          <text x="60" y="232" fill="#aeb9c7" font-size="12">• Презентация выполнена как единая HTML-страница • Figma/Excel исключены из обязательного набора</text>
+          <text x="60" y="252" fill="#aeb9c7" font-size="12">• Графитовая тёмно-серая визуальная тема по умолчанию</text>
+        </svg>
+      </div>
+
+      <div class="card col-6">
+        <h2>Платформы (Top)</h2>
+        <div class="bars">
+          
+    <div class="bar-row">
+      <div class="bar-label">windows</div>
+      <div class="bar-wrap"><div class="bar" style="width:100%"></div></div>
+      <div class="bar-num">432</div>
     </div>
+    <div class="bar-row">
+      <div class="bar-label">general</div>
+      <div class="bar-wrap"><div class="bar" style="width:86%"></div></div>
+      <div class="bar-num">370</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">macos</div>
+      <div class="bar-wrap"><div class="bar" style="width:83%"></div></div>
+      <div class="bar-num">357</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">linux</div>
+      <div class="bar-wrap"><div class="bar" style="width:66%"></div></div>
+      <div class="bar-num">285</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">mobile</div>
+      <div class="bar-wrap"><div class="bar" style="width:37%"></div></div>
+      <div class="bar-num">158</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">android</div>
+      <div class="bar-wrap"><div class="bar" style="width:31%"></div></div>
+      <div class="bar-num">132</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">ios</div>
+      <div class="bar-wrap"><div class="bar" style="width:23%"></div></div>
+      <div class="bar-num">100</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">cli</div>
+      <div class="bar-wrap"><div class="bar" style="width:16%"></div></div>
+      <div class="bar-num">67</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">web</div>
+      <div class="bar-wrap"><div class="bar" style="width:10%"></div></div>
+      <div class="bar-num">42</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">desktop</div>
+      <div class="bar-wrap"><div class="bar" style="width:5%"></div></div>
+      <div class="bar-num">23</div>
+    </div>
+        </div>
+      </div>
+
+      <div class="card col-6">
+        <h2>Категории (Top)</h2>
+        <div class="bars">
+          
+    <div class="bar-row">
+      <div class="bar-label">Utility</div>
+      <div class="bar-wrap"><div class="bar" style="width:100%"></div></div>
+      <div class="bar-num">101</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Developer Tools</div>
+      <div class="bar-wrap"><div class="bar" style="width:77%"></div></div>
+      <div class="bar-num">78</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Video</div>
+      <div class="bar-wrap"><div class="bar" style="width:58%"></div></div>
+      <div class="bar-num">59</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Audio</div>
+      <div class="bar-wrap"><div class="bar" style="width:50%"></div></div>
+      <div class="bar-num">50</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Documents</div>
+      <div class="bar-wrap"><div class="bar" style="width:40%"></div></div>
+      <div class="bar-num">40</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Text Editors</div>
+      <div class="bar-wrap"><div class="bar" style="width:32%"></div></div>
+      <div class="bar-num">32</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Customize</div>
+      <div class="bar-wrap"><div class="bar" style="width:32%"></div></div>
+      <div class="bar-num">32</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Communication</div>
+      <div class="bar-wrap"><div class="bar" style="width:29%"></div></div>
+      <div class="bar-num">29</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Graphics Tools</div>
+      <div class="bar-wrap"><div class="bar" style="width:26%"></div></div>
+      <div class="bar-num">26</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">VPN and Proxy Tools</div>
+      <div class="bar-wrap"><div class="bar" style="width:23%"></div></div>
+      <div class="bar-num">23</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Browsers</div>
+      <div class="bar-wrap"><div class="bar" style="width:23%"></div></div>
+      <div class="bar-num">23</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">Games</div>
+      <div class="bar-wrap"><div class="bar" style="width:22%"></div></div>
+      <div class="bar-num">22</div>
+    </div>
+        </div>
+      </div>
+
+      <div class="card col-6">
+        <h2>Покрытие Источников</h2>
+        <table>
+          <thead><tr><th>Source File</th><th class="num">Apps</th></tr></thead>
+          <tbody><tr><td>README.md</td><td class="num">510</td></tr><tr><td>MOBILE.md</td><td class="num">138</td></tr><tr><td>filter/windows-only.md</td><td class="num">2</td></tr><tr><td>filter/linux-only.md</td><td class="num">2</td></tr><tr><td>filter/macOS-only.md</td><td class="num">1</td></tr><tr><td>filter/recommended-only.md</td><td class="num">1</td></tr></tbody>
+        </table>
+      </div>
+
+      <div class="card col-12">
+        <h2>Сэмпл Карточек (фактические записи)</h2>
+        <div class="sample-grid">
+          <article class="sample">
+                <b>1Password</b>
+                <div class="meta">Security</div>
+                <div class="meta">android, ios, mobile</div>
+                <a href="https://1password.com">https://1password.com</a>
+              </article><article class="sample">
+                <b>7-Zip</b>
+                <div class="meta">Compression and Archiving</div>
+                <div class="meta">general, windows</div>
+                <a href="https://7-zip.org/download.html">https://7-zip.org/download.html</a>
+              </article><article class="sample">
+                <b>A+ Gallery</b>
+                <div class="meta">Image Viewers</div>
+                <div class="meta">android, mobile</div>
+                <a href="https://play.google.com/store/apps/details?id=com.atomicadd.filedir">https://play.google.com/store/apps/details?id=com.atomicadd.filedir</a>
+              </article><article class="sample">
+                <b>AB Download Manager</b>
+                <div class="meta">Download Managers</div>
+                <div class="meta">general, linux, windows</div>
+                <a href="https://abdownloadmanager.com">https://abdownloadmanager.com</a>
+              </article><article class="sample">
+                <b>ABCjs</b>
+                <div class="meta">Audio</div>
+                <div class="meta">general, linux, macos, windows</div>
+                <a href="https://abcjs.net">https://abcjs.net</a>
+              </article><article class="sample">
+                <b>Adapter</b>
+                <div class="meta">Video</div>
+                <div class="meta">macos, windows</div>
+                <a href="https://macroplant.com/adapter/video-converter">https://macroplant.com/adapter/video-converter</a>
+              </article><article class="sample">
+                <b>ADM (Advanced Download Manager)</b>
+                <div class="meta">Download Managers</div>
+                <div class="meta">android, mobile</div>
+                <a href="https://play.google.com/store/apps/details?id=com.dv.adm">https://play.google.com/store/apps/details?id=com.dv.adm</a>
+              </article><article class="sample">
+                <b>Adobe Acrobat Reader</b>
+                <div class="meta">Documents</div>
+                <div class="meta">android, ios, mobile</div>
+                <a href="https://www.adobe.com/acrobat/mobile-app.html">https://www.adobe.com/acrobat/mobile-app.html</a>
+              </article><article class="sample">
+                <b>Adobe Express</b>
+                <div class="meta">Graphics Tools</div>
+                <div class="meta">android, ios, mobile</div>
+                <a href="https://www.adobe.com/express">https://www.adobe.com/express</a>
+              </article><article class="sample">
+                <b>Adobe Premiere Rush</b>
+                <div class="meta">Video</div>
+                <div class="meta">android, ios, mobile</div>
+                <a href="https://www.adobe.com/products/premiere-rush.html">https://www.adobe.com/products/premiere-rush.html</a>
+              </article><article class="sample">
+                <b>Advanced IP Scanner</b>
+                <div class="meta">Utility</div>
+                <div class="meta">general, windows</div>
+                <a href="https://advanced-ip-scanner.com">https://advanced-ip-scanner.com</a>
+              </article><article class="sample">
+                <b>Affinity</b>
+                <div class="meta">Graphics Tools</div>
+                <div class="meta">desktop</div>
+                <a href="https://www.affinity.studio/">https://www.affinity.studio/</a>
+              </article><article class="sample">
+                <b>AIDE</b>
+                <div class="meta">Text Editors</div>
+                <div class="meta">android, mobile</div>
+                <a href="https://play.google.com/store/apps/details?id=com.aide.ui">https://play.google.com/store/apps/details?id=com.aide.ui</a>
+              </article><article class="sample">
+                <b>AIMP</b>
+                <div class="meta">Audio</div>
+                <div class="meta">android, mobile</div>
+                <a href="http://www.aimp.ru">http://www.aimp.ru</a>
+              </article><article class="sample">
+                <b>AIMP</b>
+                <div class="meta">Audio</div>
+                <div class="meta">windows</div>
+                <a href="https://aimp.ru">https://aimp.ru</a>
+              </article><article class="sample">
+                <b>Alchemy</b>
+                <div class="meta">Graphics Tools</div>
+                <div class="meta">general, linux, macos, windows</div>
+                <a href="https://al.chemy.org">https://al.chemy.org</a>
+              </article><article class="sample">
+                <b>Algo</b>
+                <div class="meta">VPN and Proxy Tools</div>
+                <div class="meta">general, linux, macos, windows</div>
+                <a href="https://github.com/trailofbits/algo">https://github.com/trailofbits/algo</a>
+              </article><article class="sample">
+                <b>AltSnap</b>
+                <div class="meta">Utility</div>
+                <div class="meta">windows</div>
+                <a href="https://github.com/RamonUnch/AltSnap">https://github.com/RamonUnch/AltSnap</a>
+              </article>
+        </div>
+      </div>
+
+      <div class="card col-8">
+        <h2>Проверки И Результаты</h2>
+        <div class="pill ok">build:data: passed</div>
+        <div class="pill ok">validate-data: passed</div>
+        <div class="pill ok">build-web: passed</div>
+        <div class="pill ok">smoke: passed</div>
+        <div class="pill ok">ui-check: passed</div>
+        <div class="pill ok">layout-check: passed</div>
+        <p class="muted" style="margin:10px 0 0;">Проверки подтверждают отсутствие горизонтального скролла и корректную реакцию фильтров/поиска.</p>
+      </div>
+
+      <div class="card col-4">
+        <h2>Интеграции</h2>
+        <p><b>GitHub:</b> main актуален</p>
+        <p><b>CircleCI:</b> config готов</p>
+        <p><b>Figma:</b> не обязательна в текущем цикле</p>
+        <p><b>Excel:</b> не обязательна в текущем цикле</p>
+      </div>
+    </section>
   </div>
 </body>
 </html>
